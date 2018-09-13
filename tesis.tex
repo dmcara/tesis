@@ -2,12 +2,11 @@
 \usepackage[spanish,mexico]{babel}
 \usepackage{natbib}
 \usepackage{cite}
-\usepackage{url}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{graphicx}
-\graphicspath{{images/}}
+\graphicspath{{imagenes/}}
 \usepackage{parskip}
 \usepackage{fancyhdr}
 \usepackage{vmargin}
@@ -181,7 +180,7 @@ Un experimento sencillo para la licenciatura\\
 
 -Intro MOT \\
 -FWM en MOT\\
--Trabajo en cuestion.\\
+-Trabajo en cuestión.\\
 
 
 \section{Capítulo I: Theoretical Background}\label{problema}
@@ -189,13 +188,16 @@ Un experimento sencillo para la licenciatura\\
 
 \subsection{Trampa Magneto-Óptica}\label{MOT}
 
-\subsection{Revisión Teórica (Jen)}\label{JENteorev}
+Las trampas magneto-ópticas (MOT) son el mecanismo más utilizado para atrapar átomos neutros. Logrado por primera vez en 1987 [Citar ref primer mot], es un método robusto que nos permite confinar ensambles de átomos, a temperaturas menores a 1mK, de manera relativamente económica tanto en recursos como en tiempo de trabajo.\\ 
 
-\subsection{Sístema de Imagen}\label{absorción}
+Como su nombre lo indica, la MOT tiene dos componentes principales, la componente  magnética de estas trampas lo aporta un cuadrupolo magnético, creado con un par de bobinas en configuración \textit{anti-helmholtz}, que resulta en un campo de la forma $B(z) = bz$. Al combinar esto con un conjunto de pares de haces contrapropagantes con polarizaciones circulares opuestas (también conocido como \textit{melaza óptica})   
+
+
+\subsection{Sistema de Imagen}\label{absorcion}
 
 Para recabar información sobre la nube de átomos se utiliza un sistema de imagen. En nuestro caso se utilizan dos técnicas, fluorescencia y absorción. 
 El primero consiste en recolectar parte de la luz dispersada por la nube. Esto resulta particularmente práctico en trampas magneto-ópticas como la nuestra ya que la nube está fluoresciendo constantemente siendo entonces razonablemente sencillo monitorearla con este método. La segunda técnica, que es en la que nos centraremos a lo largo de este trabajo, como su nombre lo indica se basa en la absorción de luz por parte de nuestro ensamble de átomos. Se utiliza un haz de imagen con una intensidad mucho menor a la intensidad de saturación de los átomos y se observa, con la ayuda de un CCD, la sombra que estos crean al absorber parte de la luz de dicho haz.\\
-\begin{figure}[h]
+\begin{figure}[h] 
     \begin{center}
         \includegraphics[width=0.6\linewidth]{esqabs.png}
     \end{center}
@@ -234,10 +236,11 @@ Por lo tanto, la señal que detectaremos al recolectar la luz después de la nub
     %
     F(y,z) = I_{T}(y,z) + B(y,z) = I_{0}(y,z)T(y,z) + B(y,z).
     %
+    \label{eqterimag}
 \end{equation}
 Donde $B(y,z)$ es el ruido de fondo que pueda percibir nuestro CCD.\\
 \\
-Para el límite de baja densidad óptica podemos entonces obtener la transmisión $T(y,z)$ y por lo tanto la densidad óptica $D(y,z)$ a partir de la señal detectada en nuestro CCD. Para lograrlo tomamos tres fotos. La primera $F_{1}(y,z)$, sin el haz ni la nube, nos va a dar las cuentas obscuras o ruido de fondo, es decir $F_{1}(y,z)=B(y,z)$. Luego tomamos una segunda foto $F_{2}(y,z)$, esta vez con el haz de imagen pero sin la nube de átomos obteniendo entonces $F_{2}(y,z) = I_{0}(y,z) + B(y,z)$ y finalmente tomamos la tercera imagen que nos da una señal como la descrita en la ecuación ().\\
+Para el límite de baja densidad óptica podemos entonces obtener la transmisión $T(y,z)$ y por lo tanto la densidad óptica $D(y,z)$ a partir de la señal detectada en nuestro CCD. Para lograrlo tomamos tres fotos. La primera $F_{1}(y,z)$, sin el haz ni la nube, nos va a dar las cuentas obscuras o ruido de fondo, es decir $F_{1}(y,z)=B(y,z)$. Luego tomamos una segunda foto $F_{2}(y,z)$, esta vez con el haz de imagen pero sin la nube de átomos obteniendo entonces $F_{2}(y,z) = I_{0}(y,z) + B(y,z)$ y finalmente tomamos la tercera imagen que nos da una señal como la descrita en la ecuación \ref{eqterimag}.\\
 \\
 A partir de estas tres imágenes podemos calcular la densidad óptica de la nube: 
 \begin{equation}
