@@ -1,6 +1,5 @@
 \documentclass[12pt,twoside]{article}
 \usepackage[spanish,mexico]{babel}
-\usepackage{natbib}
 \usepackage{cite}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsmath}
@@ -188,55 +187,60 @@ Un experimento sencillo para la licenciatura\\
 
 \subsection{Trampa Magneto-Óptica}\label{MOT}
 
-Las trampas magneto-ópticas (MOT) son el mecanismo más utilizado para atrapar átomos neutros. Logrado por primera vez en 1987 [Citar ref primer mot], es un método robusto que nos permite confinar ensambles de átomos, a temperaturas menores a 1mK, de manera relativamente económica tanto en recursos como en tiempo de trabajo.\\ 
+Las trampas magneto-ópticas (MOT) son el mecanismo más utilizado para atrapar átomos neutros. Logrado por primera vez en 1987\cite{PhysRevLett.59.2631} es un método robusto que nos permite confinar ensambles de átomos, a temperaturas menores a 1mK, de manera relativamente económica tanto en recursos como en tiempo de trabajo.\\ 
 
-Como su nombre lo indica, la MOT tiene dos componentes principales, la componente  magnética de estas trampas lo aporta un cuadrupolo magnético, creado con un par de bobinas en configuración \textit{anti-helmholtz}, que resulta en un campo de la forma $B(z) = bz$. Al combinar esto con un conjunto de pares de haces contrapropagantes con polarizaciones circulares opuestas (también conocido como \textit{melaza óptica})   
+Uno de los dos elementos fundamentales de la MOT está conformado por un conjunto de pares de haces contrapropagantes (tres pares de haces para poder crear una MOT en 3D). Estos haces se preparan con polarizaciones circulares opuestas y están sintonizados \textit{al rojo} de la \textit{transición de enfriamiento} ( $\ket{5S_{\frac{1}{2}},F=2} \rightarrow \ket{5P_{\frac{3}{2}},F'=3}$ del $^{87}Rb$ en nuestro caso). Al desplazarse en dirección opuesta a la propagación de uno de estos haces, los átomos ven un corrimiento de su frecuencia hacia el azul debido al \textit{efecto Doppler} por lo que entrará en resonancia y los átomos sentirán una fuerza que se opone a su movimiento de la siguiente forma\cite{Foot}:
+
+
+\begin{equation}
+F = F_{scatt}(w-w_0-kv) - F_{scatt}(w-w_0+kv)  \approx - \alpha v
+\end{equation}
+
+Esto es análogo a la fuerza que sentirían los átomos al moverse en un líquido viscoso por lo que este mecanismo es también conocido como \textit{melaza óptica}. A esto se le suma un cuadrupolo magnético, creado con un par de bobinas en configuración \textit{anti-helmholtz}, que resulta en un campo de la forma $B(z) = bz$.   
+Este campo desdobla el nivel excitado en sus tres componentes Zeeman causando que, para los átomos en dirección $z > 0$, el nivel con $M_e = -1$ sufra un corrimiento hacia el rojo quedando entonces la transición $\Delta M = -1$ más cerca de la frecuencia del haz de enfriamiento. Por lo tanto, si el haz que incide en dirección $-\hat{z}$ tiene polarización $\sigma^{-}$ lo átomos de este lado absorberán más sus fotones sintiendo así una fuerza que los empuja al centro de la trampa donde el campo magnético es cero y por consecuencia el desequilibrio en las fuerzas de \textit{scattering} también desaparece. Del otro lado, para los átomos con $z < 0$ sucede algo análogo con el nivel $M_e = 1$ y un haz de polarización $\sigma^{+}$. Al agregar el campo magnético y cuando los corrimientos tanto Zeeman como Doppler son pequeños comparados con la desintonía de los haces de enfriamiento, las fuerzas interactuando con los átomos se pueden escribir de la siguiente manera\cite{metcalf99}: 
+
+\begin{equation}
+\vec{F} = -\beta \vec{v} - \kappa  \vec{r}
+\end{equation}
+
+Donde vemos nuevamente la componente relacionada con el amortiguamiento por la \textit{melaza} pero ahora notamos una componente que nos hace pensar en una fuerza de resorte que viene ahora relacionada con el gradiente del campo magnético y es justamente esta parte de la fuerza la responsable del confinamiento de los átomos en el centro de la trampa. 
+Para información más detallada sobre los mecanismos de la MOT y en particular sobre nuestra trampa recomiendo la revisión de la tesis de maestría de 
 
 
 \subsection{Sistema de Imagen}\label{absorcion}
 
 Para recabar información sobre la nube de átomos se utiliza un sistema de imagen. En nuestro caso se utilizan dos técnicas, fluorescencia y absorción. 
-El primero consiste en recolectar parte de la luz dispersada por la nube. Esto resulta particularmente práctico en trampas magneto-ópticas como la nuestra ya que la nube está fluoresciendo constantemente siendo entonces razonablemente sencillo monitorearla con este método. La segunda técnica, que es en la que nos centraremos a lo largo de este trabajo, como su nombre lo indica se basa en la absorción de luz por parte de nuestro ensamble de átomos. Se utiliza un haz de imagen con una intensidad mucho menor a la intensidad de saturación de los átomos y se observa, con la ayuda de un CCD, la sombra que estos crean al absorber parte de la luz de dicho haz.\\
+El primero consiste en recolectar parte de la luz dispersada por la nube. Esto resulta particularmente práctico en trampas magneto-ópticas como la nuestra ya que la nube está fluoresciendo constantemente siendo entonces razonablemente sencillo monitorearla con este método. La segunda técnica, que es en la que nos centraremos a lo largo de este trabajo, como su nombre lo indica se basa en la absorción de luz por parte de nuestro ensamble de átomos. Se utiliza un haz de imagen con una intensidad mucho menor a la intensidad de saturación de los átomos y se observa, con la ayuda de un CCD, la sombra que estos crean al absorber parte de la luz de dicho haz.
+
 \begin{figure}[h] 
     \begin{center}
         \includegraphics[width=0.6\linewidth]{esqabs.png}
     \end{center}
     \caption{Esquema de método de imagen por absorción: a)Imagen sin átomos. b)Imagen con átomos. }
     \label{esqimgabs}
-\end{figure} \\
-Este técnica presenta una mejor relación señal a ruido que la primera (la señal es al rededor de 100 veces mayor[citar Tesis de Gordon D. McDonald]) ya que con la primer técnica, debido a la distribución espacial isotrópica de la emisión de fotones en la fluorescencia, sólo capturamos parte de la luz dispersada. Sin embargo debemos tener en cuenta que el método de imagen por absorción no funciona para densidades ópticas demasiado grandes porque la transmisión decae exponencialmente con la densidad óptica causando que a densidades ópticas muy elevadas la sombra de la nube sea completamente obscura y no permita el un análisis adecuado. (De ser necesario, éste problema se puede solucionar desintonizando un poco el haz de imagen para sacarlo de resonancia.)\\ 
+\end{figure}
+Este técnica presenta una mejor relación señal a ruido que la primera (la señal es al rededor de 100 veces mayor \cite{Gordon2009}) ya que con la primer técnica, debido a la distribución espacial isotrópica de la emisión de fotones en la fluorescencia, sólo capturamos parte de la luz dispersada. Sin embargo debemos tener en cuenta que el método de imagen por absorción no funciona para densidades ópticas demasiado grandes porque la transmisión decae exponencialmente con la densidad óptica causando que a densidades ópticas muy elevadas la sombra de la nube sea completamente obscura y no permita el un análisis adecuado. (De ser necesario, éste problema se puede solucionar desintonizando un poco el haz de imagen para sacarlo de resonancia.)
 \subsubsection{Densidad óptica y número de átomos}\label{teoDOynum}
-
 De acuerdo con la ley de Beer-Lambert, tras pasar por la nube de átomos el perfil de intensidades de la luz viene dado por:
-
 \begin{equation}
-%
-    I_{T}(y,z) = I_{0}(y,z)T(y,z) = I_{0}(y,z) e^{-D(y,z)}.
-%
+I_{T}(y,z) = I_{0}(y,z)T(y,z) = I_{0}(y,z) e^{-D(y,z)}.
 \end{equation}
 
 Aquí, la densidad óptica de la nube es:
 \begin{equation}
-%
-    D(y,z) = \sigma_{\pi} n_{2D} = \sigma_{\pi} \int n_{0}(x,y,z) dx.
-%
+D(y,z) = \sigma_{\pi} n_{2D} = \sigma_{\pi} \int n_{0}(x,y,z) dx.
 \end{equation}
 
 Siendo $n_{2D}$ es la densidad de columna y $\sigma_{\pi}$ es el ángulo sólido de absorción que viene dado por:
 \begin{equation}
-%
-    \sigma_{\pi} = \frac{\sigma_{0}}{1 + 4(\frac{\delta}{\Gamma})^2 + \frac{I}{I_{sat}}}.
-%
+\sigma_{\pi} = \frac{\sigma_{0}}{1 + 4(\frac{\delta}{\Gamma})^2 + \frac{I}{I_{sat}}}.
 \end{equation}
 
-Notemos que para un haz cuya intensidad sea mucho menor que la intensidad de saturación de los átomos y que se encuentre en resonancia (o muy cerca de resonancia) tendremos que $\sigma_{\pi} \sim \sigma_{0}$ que en nuestro caso es igual a $1.938 \times 10^{-9} cm^2$.[citar el Steck]\\
+Notemos que para un haz cuya intensidad sea mucho menor que la intensidad de saturación de los átomos y que se encuentre en resonancia (o muy cerca de resonancia) tendremos que $\sigma_{\pi} \sim \sigma_{0}$ que en nuestro caso es igual a $1.938 \times 10^{-9} cm^2$.\cite{Steck}\\
 \\
 Por lo tanto, la señal que detectaremos al recolectar la luz después de la nube es:
 \begin{equation}
-    %
-    F(y,z) = I_{T}(y,z) + B(y,z) = I_{0}(y,z)T(y,z) + B(y,z).
-    %
-    \label{eqterimag}
+F(y,z) = I_{T}(y,z) + B(y,z) = I_{0}(y,z)T(y,z) + B(y,z).\label{eqterimag}
 \end{equation}
 Donde $B(y,z)$ es el ruido de fondo que pueda percibir nuestro CCD.\\
 \\
@@ -244,16 +248,12 @@ Para el límite de baja densidad óptica podemos entonces obtener la transmisió
 \\
 A partir de estas tres imágenes podemos calcular la densidad óptica de la nube: 
 \begin{equation}
-%
-    D(y,z) = - ln\left(\frac{F(y,z)-F_{1}(y,z)}{F_{2}(y,z)-F_{1}(y,z)}\right).
-%
+D(y,z) = - ln\left(\frac{F(y,z)-F_{1}(y,z)}{F_{2}(y,z)-F_{1}(y,z)}\right).
 \end{equation}
 
 A partir de esto uno puede encontrar el número de átomos en la nube integrando sobre toda la imagen de la siguiente forma:
 \begin{equation}
-%
-    N = \frac{A}{\sigma_\pi} \sum_{pixeles} -ln(T(y,z)).
-%    
+N = \frac{A}{\sigma_\pi} \sum_{pixeles} -ln(T(y,z)).
 \end{equation}
 
 Donde A es el área del píxel en el plano del objeto, es decir, $\frac{area del pixel}{magnificacion}$.
@@ -283,10 +283,10 @@ Para conseguir este control sobre la frecuencia utilizamos Moduladores Acusto-Ó
     \label{esqaom}
 \end{figure} \\
 \newpage
-Alineando cuidadosamente el orden que nos interesa y modulando con el controlador del AOM (marca *insertar marca*) tenemos control de hasta 0.001MHz sobre la frecuencia del haz. \\
+Alineando cuidadosamente el orden que nos interesa y modulando con el controlador del AOM (marca \textit{IntraAction}) tenemos control de hasta 0.001MHz sobre la frecuencia del haz. \\
 \\
-La luz utilizada para imagen proviene del láser maestro de nuestro laboratorio. Este láser está anclado al entrecruce $CO_{1-3}$ a alrededor de 211.8MHz de resonancia con la transición de enfriamiento $\ket{5S_{\frac{1}{2}},F=2} \rightarrow \ket{5P_{\frac{3}{2}},F'=3}$ del $^{87}Rb$. \\
-Como se puede observar en la figura (\ref{arreglaom}), tomamos la luz para imagen de un PBS tras haber pasado por un primer AOM de +60MHz, es decir, que viene el haz a -151.8MHz de la transición de enfriamiento. De ahí lo mandamos en un doble paso a través de un segundo AOM, esta vez de +75MHz, recorriendo esta vez la frecuencia hasta -1.8MHz de la transición ya mencionada. El hacer esto en un doble paso, además de permitirnos reutilizar un mismo AOM para hacer dos corrimientos de frecuencia, nos permite evitar cambios de orientación en el haz al variar la frecuencia que podrían resultar en problemas con el acoplamiento de las fibras ópticas que distribuirán esta luz. [citar Donley, Double pass AOM system]\\
+La luz utilizada para imagen proviene del láser maestro de nuestro laboratorio. Este láser está anclado al entrecruce $CO_{1-3}$ a alrededor de 211.8MHz de resonancia con la transición de enfriamiento. \\
+Como se puede observar en la figura (\ref{arreglaom}), tomamos la luz para imagen de un PBS tras haber pasado por un primer AOM de +60MHz, es decir, que viene el haz a -151.8MHz de la transición de enfriamiento. De ahí lo mandamos en un doble paso a través de un segundo AOM, esta vez de +75MHz, recorriendo esta vez la frecuencia hasta -1.8MHz de la transición ya mencionada. El hacer esto en un doble paso, además de permitirnos reutilizar un mismo AOM para hacer dos corrimientos de frecuencia, nos permite evitar cambios de orientación en el haz al variar la frecuencia que podrían resultar en problemas con el acoplamiento de las fibras ópticas que distribuirán esta luz. \cite{doublepass}\\
 \\
 Finalmente esta luz ya cerca de resonancia y cuya frecuencia ya podemos controlar se acopla a una fibra y en un arreglo posterior se divide pues será también utilizada para uno de los haces del FWM que se hará en etapas posteriores del experimento. 
 
@@ -295,7 +295,7 @@ Finalmente esta luz ya cerca de resonancia y cuya frecuencia ya podemos controla
 \newpage
 \begin{figure}[H]
     \begin{center}
-        \includegraphics[width=1.1\linewidth]{amplificadoryAOM.png}
+        \includegraphics[width=1.0\linewidth]{amplificadoryAOM.png}
     \end{center}
     \caption{En la parte sombreada en azul celeste se muestra como, tras el primer AOM, parte de la luz pasa a una nueva parte del arreglo donde se realiza una segunda sintonía fina y su distribución para imagen y FWM.}
     \label{arreglaom}
@@ -329,7 +329,7 @@ Finalmente esta luz ya cerca de resonancia y cuya frecuencia ya podemos controla
 
 
 \newpage
-\bibliographystyle{myplain}
-\bibliography{biblist}
+\bibliography{bibliografia}
+\bibliographystyle{ieeetr}
 
 \end{document}
